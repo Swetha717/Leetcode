@@ -1,6 +1,8 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        temp=set(nums)
-        if len(temp)==len(nums):
-            return False
-        return True
+        hash_map={}
+        for n in nums:
+            hash_map[n]=hash_map.get(n,0)+1
+            if hash_map[n]>1:
+                return True
+        return False
